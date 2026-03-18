@@ -2,14 +2,15 @@
 import {ChangeDetectorRef, Component, OnInit} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {DocenteService} from '../../services/docente-service';
-import {createStructuredContentOutput} from '@angular/cli/src/commands/mcp/utils';
 import {Docente} from '../../modelo/docente';
-
+import { TableModule } from 'primeng/table';
+import {CardModule} from 'primeng/card';
 
 @Component({
   selector: 'app-docente-list',
   standalone: true,
-  imports: [CommonModule], // Lo mantenemos por buena práctica
+  imports: [CommonModule, TableModule], // Lo mantenemos por buena práctica
+  providers: [DocenteService, CardModule],
   templateUrl: './docente-list.html'
 })
 export class DocenteList implements OnInit {

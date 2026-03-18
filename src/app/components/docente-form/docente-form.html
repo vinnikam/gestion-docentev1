@@ -1,21 +1,27 @@
-<div class="container">
-  <div class="card p-4 shadow">
-    <h3>Registrar Nuevo Docente</h3>
-    <form [formGroup]="form" (ngSubmit)="guardar()">
+<div class="flex justify-content-center align-items-center ">
+  <p-card header="Registrar Nuevo Docente" styleClass="w-3">
+    <form [formGroup]="form" (ngSubmit)="guardar()" class="flex flex-column gap-4">
 
-      <div class="mb-3">
-        <label class="form-label">Nombre</label>
-        <input type="text" class="form-control" formControlName="nombre">
+      <div class="flex flex-column gap-2 align-items-start">
+        <label for="nombre">Nombre</label>
+        <input id="nombre" type="text" pInputText formControlName="nombre" />
       </div>
-      <div class="mb-3">
-        <label class="form-label">Apellido</label>
-        <input type="text" class="form-control" formControlName="apellido">
+
+      <div class="flex flex-column gap-2 align-items-start">
+        <label for="apellido">Apellido</label>
+        <input id="apellido" type="text" pInputText formControlName="apellido" />
       </div>
-      <div class="mb-3">
-        <label class="form-label">Email</label>
-        <input type="text" class="form-control" formControlName="email">
+
+      <div class="flex flex-column gap-2 align-items-start">
+        <label for="email">Email</label>
+        <input id="email" type="text" pInputText formControlName="email" />
       </div>
-      <button type="submit" class="btn btn-primary" [disabled]="form.invalid">Guardar</button>
+
+      <div class="flex justify-content-end w-full">
+        <button pButton type="submit" label="Guardar" icon="pi pi-save" [disabled]="form.invalid"></button>
+      </div>
+
     </form>
-  </div>
+  </p-card>
 </div>
+

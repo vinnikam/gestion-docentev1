@@ -1,26 +1,30 @@
-<div class="container mt-4">
+<div class="container mt-6">
   <h3>Listado de Docentes</h3>
+  <div class="card">
+    <p-table [value]="docentes" stripedRows [paginator]="true" [rows]="5" [tableStyle]="{ 'min-width': '50rem' }">
+      <ng-template pTemplate="header">
+        <tr>
+          <th pSortableColumn="nombre">Nombre <p-sortIcon field="nombre"></p-sortIcon></th>
+          <th pSortableColumn="apellido">Apellido <p-sortIcon field="apellido"></p-sortIcon></th>
+          <th pSortableColumn="email">Email <p-sortIcon field="email"></p-sortIcon></th>
+        </tr>
+      </ng-template>
 
-  <table class="table table-striped mt-3">
-    <thead class="table-dark">
-    <tr>
-      <th>Nombre</th>
-      <th>Apellido</th>
-      <th>Email</th>
-    </tr>
-    </thead>
-    <tbody>
-      @for (docente of docentes; track $index) {
+      <ng-template pTemplate="body" let-docente>
         <tr>
           <td>{{ docente.nombre }}</td>
           <td>{{ docente.apellido }}</td>
           <td>{{ docente.email }}</td>
         </tr>
-      } @empty {
+      </ng-template>
+
+      <ng-template pTemplate="emptymessage">
         <tr>
           <td colspan="3" class="text-center">No hay docentes registrados.</td>
         </tr>
-      }
-    </tbody>
-  </table>
+      </ng-template>
+    </p-table>
+  </div>
+
+
 </div>
